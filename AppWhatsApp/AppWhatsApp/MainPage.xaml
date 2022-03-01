@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:appwhatsapp="clr-namespace:AppWhatsApp" x:DataType="appwhatsapp:MainPage"
+            x:Class="AppWhatsApp.MainPage"
+            Title="WhatsApp" 
+            BarBackgroundColor= "#075E54">
+    
+    
+    <TabbedPage.Children>
+
+        <ContentPage IconImageSource="camaraIcon.png">
+                <StackLayout>
+                    <Image Source="girl.jpg"
+                           Aspect="Fill"
+                           HeightRequest="800"/>
+                </StackLayout>
+        </ContentPage>
+
+        <ContentPage Title="Chats" BackgroundColor="#ECE5DD">
+                <StackLayout Margin="5">
+                <CollectionView ItemsSource="{Binding ListaChats}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="10">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="22"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Text="{Binding Nombre}"
+                                               Grid.Column="1"
+                                               Grid.Row="0" 
+                                               FontAttributes="Bold"
+                                               FontSize="17"
+                                               TextColor="#000"/>
+                                        
+                                        <Label Text="{Binding Chat}"
+                                               Grid.Column="1"
+                                               Grid.Row="1"
+                                               TextColor="#000"
+                                               FontSize="Small"/>
+                                        
+                                        <Frame BorderColor="Black"
+                                               CornerRadius="20"
+                                               HeightRequest="20"
+                                               WidthRequest="5"
+                                               IsClippedToBounds="True"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"
+                                               Grid.Column="0"
+                                               Grid.Row="0"
+                                               Grid.RowSpan="2">
+
+                                            <Image Source="{Binding Img}"
+                                                       Aspect="AspectFill"
+                                                       Margin="-20"/>
+
+
+                                    </Frame>
+                                    
+
+                                    <Label Text="{Binding Horachat}"
+                                               Grid.Column="2"
+                                               Grid.Row="0" 
+                                               HorizontalOptions="End"
+                                               TextColor="#000"/>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+        </ContentPage>
+
+        <ContentPage Title="Estados" BackgroundColor="#ECE5DD">
+            <CollectionView ItemsSource="{Binding ListaChats}"
+                            Header="WhatsApp">
+
+                <CollectionView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Frame BorderColor="Black"
+                                CornerRadius="50"
+                                HeightRequest="50"
+                                WidthRequest="50"
+                                IsClippedToBounds="True"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                Grid.RowSpan="2">
+                                <StackLayout>
+                                    <Image Source="foto.png"
+                                        Aspect="AspectFill"
+                                        Margin="-20"/>
+                                </StackLayout>
+                            </Frame>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                            </Grid>
+
+                            <Label Text="Mi estado"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"
+                                   Grid.Row="0"
+                                   WidthRequest="300"/>
+                            
+                            <Label Text="Añade una nueva actualización"
+                                   FontSize="Subtitle"
+                                   WidthRequest="300"
+                                   TranslationY="30"
+                                   TranslationX="-130"
+                                   Grid.Row="1"/>
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.HeaderTemplate>
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="22"/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding Nombre}"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       FontAttributes="Bold"
+                                       FontSize="17"
+                                       TextColor="#000"/>
+
+                                <Label Text="{Binding EstadoContacto}"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       TextColor="#000"/>
+
+                                <Frame BorderColor="Black"
+                                       CornerRadius="50"
+                                       HeightRequest="50"
+                                       WidthRequest="0"
+                                       IsClippedToBounds="True"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2">
+
+                                    <Image Source="{Binding Img}"
+                                           Aspect="AspectFill"
+                                           Margin="-20"/>
+
+                                </Frame>
+
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </ContentPage>
+
+        <ContentPage Title="Llamadas" BackgroundColor="#ECE5DD">
+            <CollectionView ItemsSource="{Binding ListaChats}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="210" />
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="22"/>
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Label Text="{Binding Nombre}"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       FontAttributes="Bold"
+                                       FontSize="17"/>
+                                
+                                <Label Text="{Binding Horallamada}"
+                                       Grid.Column="1"
+                                       Grid.Row="1"/>
+
+                                <Frame BorderColor="Black"
+                                       CornerRadius="20"
+                                       HeightRequest="50"
+                                       WidthRequest="0"
+                                       IsClippedToBounds="True"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       Grid.Column="0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2">
+
+                                    <Image Source="{Binding Img}"
+                                           Aspect="AspectFill"
+                                           Margin="-20"/>
+                                </Frame>
+
+                                <Image Source="{Binding Call}"
+                                       Grid.Column="2"
+                                       Grid.Row="0"
+                                       HorizontalOptions="EndAndExpand"/>
+                            </Grid>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ContentPage>
+
+    </TabbedPage.Children>  
+</TabbedPage>
